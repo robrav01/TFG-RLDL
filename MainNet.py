@@ -21,6 +21,7 @@ OBSERVACIONES = 500
 
 BATCH_SIZE = 50
 
+# Posicion de la moneda
 MONEDA = [3,4]
 
 exploration = 0.50
