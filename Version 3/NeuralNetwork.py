@@ -71,7 +71,7 @@ class DQN:
         # Crear el batch con movimientos "utiles"
         for i in range(len(observations)):
 
-            o = observations.pop()
+            o = observations.popleft()
 
             if o[3] > 0:    # Si la observacion tiene recompensa...
                 contador = 30
