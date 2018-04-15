@@ -1,0 +1,25 @@
+Version 4
+
+- Reducción del learning rate
+
+- Recompensas directas (sin depender del numero de movimientos en
+  que se consiguen)
+
+- Inicialización de los pesos de la red neuronal por defecto (que es glorot_uniform)
+
+- Codificar el estado en codificación one-hot
+
+- Utilizar las 500 observaciones para aprender
+
+- Reducir más deprisa la exploración
+
+- Exploración inicializada a 1.0
+
+// --------------------------
+//	Cambios en el juego
+// --------------------------
+
+- Se obliga al agente a coger la moneda
+
+
+
