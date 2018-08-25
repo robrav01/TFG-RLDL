@@ -18,27 +18,11 @@ exploration = 1.0
 alpha = 0.05
 gamma = 0.9
 
-# 0 -> Arriba ; 1 -> Abajo ; 2 -> Izquierda ; 3 -> Derecha
 acciones = [0, 1]
-
-# Meter moneda en el estado #
-# Obtener lista de N movimientos. Buscar movimientos con recompensa y aprender con los k anteriores
-# Meter ejemplos de entrenamiento en el batch en orden inverso
-# Codificar estado en one-hot
-
-# Interfaz (mapa de calor, ...)
-
-
-# Si no obtiene recompensa en los 500 movimientos, descartar esa "ronda"
 
 def execute(times, env):
     for t in range(times):
         print(t)
-
-        '''env.reset()
-        for _ in range(1000):
-            env.render()
-            env.step(env.action_space.sample())'''
 
         # INICIALIZACION
         state     = env.reset()
