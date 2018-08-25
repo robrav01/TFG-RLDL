@@ -18,6 +18,7 @@ exploration = 1.0
 alpha = 0.05
 gamma = 0.9
 
+# 0 -> izquierda, 1 -> derecha
 acciones = [0, 1]
 
 def execute(times, env):
