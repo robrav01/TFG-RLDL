@@ -83,9 +83,11 @@ class DQN:
                 targets[i, action] = reward + self.gamma * np.max(Qnext)
 
         self.model.fit(inputs, targets, batch_size=BATCH_SIZE, epochs=EPOCHS, verbose=False)
+        if self.exploration > 0.005:
+            self.exploration *= 0.99
         print('learning finished')
 
-    def updateExploration(self,value):
+    def updateExploration(self, value, pasos):
         if self.exploration > 0.005:
-            self.exploration += value
+            self.exploration *= value
 
