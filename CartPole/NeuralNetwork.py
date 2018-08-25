@@ -23,12 +23,12 @@ class DQN:
     def __init__(self, acciones, learning_rate, discount_factor, exploration):
         self.model = Sequential()
 
-        # ENTRADA: x (one-hot 8 posiciones) + y (one-hot 8 posiciones) + moneda obtenida
+        # ENTRADA:posicion del carro, velocidad del carro, angulo del poste, velocidad de la punta del poste
         self.model.add(Dense(4, input_dim=4, activation='relu'))
 
         self.model.add(Dense(10, activation='relu'))   # kernel_initializer=TruncatedNormal(mean=1.0,stddev=0.5))
 
-        # Salida = valores Q de las 4 posibles acciones
+        # Salida = valores Q de las 2 posibles acciones
         self.model.add(Dense(2))
 
         # Funcion de error: Mean Squared Error; Optimizador: Stochastic Gradient Descent
@@ -51,7 +51,6 @@ class DQN:
         return action
 
     def learn(self,observations):
-        #minibatch = random.sample(observations, batch_size)
 
         batch = []
 
@@ -59,20 +58,10 @@ class DQN:
 
         observations.reverse()
 
-        # Crear el batch con movimientos "utiles"
         for i in range(len(observations)):
 
             o = observations.popleft()
             batch.append(o)
-
-            '''
-            if o[3] > 0:    # Si la observacion tiene recompensa...
-                contador = 30
-
-            if contador > 0: # Si hace menos de 30 movimientos que hubo uno con recompensa
-                batch.append(o)
-                contador -= 1
-            '''
 
         inputs = np.zeros((len(batch), self.model.input_shape[1]))
         targets = np.zeros((len(batch), len(self.acciones)))
