@@ -18,7 +18,6 @@ exploration = 1.0
 alpha = 0.05
 gamma = 0.9
 
-# 0 -> izquierda, 1 -> derecha
 acciones = [0, 1]
 
 def execute(times, env):
@@ -34,9 +33,9 @@ def execute(times, env):
 
             action = DQN.take_action(state)
 
-            if t > 20:
+            if t > 200:
                 env.render()
-            next_state, reward, done, hola = env.step(action)
+            next_state, reward, done, _ = env.step(action)
 
             if done:
                 reward = -10
@@ -49,8 +48,6 @@ def execute(times, env):
                 state     = env.reset()
                 done      = False
 
-                DQN.updateExploration(-0.01)
-
 
         DQN.learn(observaciones)
 
@@ -58,4 +55,4 @@ def execute(times, env):
 if __name__ == '__main__':
         DQN = DQN(acciones, alpha, gamma, exploration)
         env = gym.make('CartPole-v1')
-        execute(100, env)
+        execute(1000, env)
