@@ -89,7 +89,7 @@ class DQN:
         self.model.fit(inputs, targets, batch_size=batch_size, epochs=EPOCHS, verbose=False)
 
         if self.epsilon > self.epsilon_min:
-            self.epsilon *= 0.9995
+            self.epsilon *= 0.999
 
 
 
