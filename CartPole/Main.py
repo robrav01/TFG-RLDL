@@ -28,7 +28,7 @@ if __name__ == '__main__':
         for t in range(STEPS):
             action = DQN.act(state)
 
-            if e > 5000:
+            if e > 500:
                 env.render()
 
             next_state, reward, done, _ = env.step(action)
