@@ -12,7 +12,7 @@ for x in range(8):
   	Q[x][7][y][3] = -1 #can't go right if you are in the rightmost column
   	Q[7][7][y] = [0, 0, 0, 0]
 
-exploration = 0.1
+exploration = 1.0
 alpha = 0.1
 gamma = 0.9 # 0.05
 
@@ -70,8 +70,8 @@ def execute():
     state = nextState[:]
     numMov += 1
 
-  #if (exploration > 0.05):
-    exploration -= 0.0001
+  if (exploration > 0.05):
+    exploration *= 0.99
 
   print('Finished in %i movements, coin obtained in %i' % (numMov, coinObtAt))
 
