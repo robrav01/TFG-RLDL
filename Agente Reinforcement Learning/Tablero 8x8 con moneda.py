@@ -71,7 +71,7 @@ def execute():
     numMov += 1
 
   if (exploration > 0.05):
-    exploration *= 0.99
+    exploration *= 0.9
 
   print('Finished in %i movements, coin obtained in %i' % (numMov, coinObtAt))
 
