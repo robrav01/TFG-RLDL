@@ -50,9 +50,9 @@ def execute():
       nextState[1] += 1
     
     if (nextState[:2] == [7, 7]):
-      reward = 1/(numMov + 1)
+      reward = 5
     elif (nextState == [3, 4, 0]):
-      reward = 1/(numMov + 1)
+      reward = 10
       nextState[2] = 1
       coinObtAt = numMov + 1
     else:
@@ -70,7 +70,7 @@ def execute():
     state = nextState[:]
     numMov += 1
 
-  if (exploration > 0.05):
+  if exploration > 0.01:
     exploration *= 0.9
 
   print('Finished in %i movements, coin obtained in %i' % (numMov, coinObtAt))
